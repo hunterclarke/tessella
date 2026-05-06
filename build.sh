@@ -2,6 +2,9 @@
 
 set -o errexit
 
+export CARGO_HOME="$PWD/.render-cargo"
+mkdir -p "$CARGO_HOME"
+
 cd web
 npm ci
 npm run build
