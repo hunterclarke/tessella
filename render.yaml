@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tessella
+    runtime: elixir
+    buildCommand: ./build.sh
+    startCommand: cd api && _build/prod/rel/api/bin/server
+    envVars:
+      - key: MIX_ENV
+        value: prod
+      - key: SECRET_KEY_BASE
+        generateValue: true
