@@ -23,6 +23,8 @@ import type {
   PositionTuple,
 } from "./types";
 
+const GITHUB_REPOSITORY_URL = "https://github.com/hunterclarke/tessella";
+
 function App() {
   const [selectedCatId, setSelectedCatId] = useState(25544);
   const [selectedGroup, setSelectedGroup] = useState<ObjectGroup>("stations");
@@ -257,7 +259,21 @@ function App() {
         onSelectObject={setSelectedCatId}
       />
 
-      <ConnectionStatusBadge connectionStatus={connectionStatus} now={now} />
+      <div className="top-actions" aria-label="Application links and status">
+        <a
+          className="github-link"
+          href={GITHUB_REPOSITORY_URL}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="View Tessella on GitHub"
+        >
+          <svg aria-hidden="true" focusable="false">
+            <use href="/icons.svg#github-icon" />
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <ConnectionStatusBadge connectionStatus={connectionStatus} now={now} />
+      </div>
     </main>
   );
 }

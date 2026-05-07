@@ -10,7 +10,9 @@
 }
 
 .group-panel,
-.operations-bar {
+.operations-bar,
+.github-link,
+.connection-status {
   position: absolute;
   border: 1px solid rgba(148, 163, 184, 0.22);
   border-radius: 8px;
@@ -383,6 +385,52 @@ h2 {
   font-size: 12px;
 }
 
+.top-actions {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.github-link {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 30px;
+  padding: 8px 10px;
+  background: rgba(248, 250, 252, 0.92);
+  color: #08060d;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background 160ms ease,
+    transform 160ms ease,
+    border-color 160ms ease;
+}
+
+.github-link:hover {
+  border-color: rgba(248, 250, 252, 0.82);
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.github-link:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.72);
+  outline-offset: 2px;
+}
+
+.github-link svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
 .metrics {
   display: grid;
   gap: 10px;
@@ -548,24 +596,17 @@ h2 {
 }
 
 .connection-status {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  bottom: auto;
+  position: static;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   min-height: 30px;
   padding: 8px 10px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  border-radius: 8px;
-  background: rgba(7, 12, 22, 0.76);
   color: #cbd5e1;
   font-size: 12px;
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
-  backdrop-filter: blur(18px);
 }
 
 .connection-status strong,
@@ -642,9 +683,8 @@ canvas {
     border-left: 0;
   }
 
-  .connection-status {
+  .top-actions {
     right: 12px;
     top: 12px;
-    bottom: auto;
   }
 }
